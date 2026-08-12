@@ -1,0 +1,96 @@
+USE Bank_Account_Management_System;
+
+-- 1. Display all customers
+SELECT * FROM Customer;
+
+
+-- 2. Display all bank accounts
+SELECT * FROM Account;
+
+
+-- 3. Display customer names and their account numbers
+SELECT 
+    Customer.Name,
+    Account.Account_No,
+    Account.Account_Type,
+    Account.Balance
+FROM Customer
+JOIN Account
+ON Customer.Customer_ID = Account.Customer_ID;
+
+
+-- 4. Display transaction history
+SELECT * 
+FROM Transaction_Table
+ORDER BY Transaction_Date;
+
+
+-- 5. Display accounts with balance greater than 20000
+SELECT 
+    Account_No,
+    Account_Type,
+    Balance
+FROM Account
+WHERE Balance > 20000;
+
+
+-- 6. Find total money in all accounts
+SELECT SUM(Balance) AS Total_Bank_Balance
+FROM Account;
+
+
+-- 7. Find average account balance
+SELECT AVG(Balance) AS Average_Balance
+FROM Account;
+
+
+-- 8. Find the highest account balance
+SELECT MAX(Balance) AS Highest_Balance
+FROM Account;
+
+
+-- 9. Display branch and employee details
+SELECT
+    Branch.Branch_Name,
+    Employee.Employee_Name,
+    Employee.Designation
+FROM Branch
+JOIN Employee
+ON Branch.Branch_ID = Employee.Branch_ID;
+
+
+-- 10. Display active loans
+SELECT *
+FROM Loan
+WHERE Loan_Status = 'Active';
+
+
+-- 11. Count number of customers
+SELECT COUNT(*) AS Total_Customers
+FROM Customer;
+
+
+-- 12. Count accounts by account type
+SELECT 
+    Account_Type,
+    COUNT(*) AS Number_of_Accounts
+FROM Account
+GROUP BY Account_Type;
+
+
+-- 13. Display customers from Hyderabad
+SELECT *
+FROM Customer
+WHERE Address = 'Hyderabad';
+
+
+-- 14. Display deposit transactions
+SELECT *
+FROM Transaction_Table
+WHERE Transaction_Type = 'Deposit';
+
+
+-- 15. Display withdrawal transactions
+SELECT *
+FROM Transaction_Table
+WHERE Transaction_Type = 'Withdrawal';
