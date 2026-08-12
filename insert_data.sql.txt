@@ -1,0 +1,54 @@
+USE Bank_Account_Management_System;
+
+-- Customer Data
+INSERT INTO Customer
+(Customer_ID, Name, DOB, Gender, Phone, Email, Address)
+VALUES
+(101, 'Ashwin', '2005-06-15', 'Male', '9876543210', 'ashwin@gmail.com', 'Hyderabad'),
+(102, 'Karthik Reddy', '2005-08-20', 'Male', '9876543211', 'karthik@gmail.com', 'Vijayawada'),
+(103, 'Tulasi Sri', '2005-04-12', 'Female', '9876543212', 'tulasi@gmail.com', 'Guntur'),
+(104, 'Saida', '2005-11-10', 'Female', '9876543213', 'saida@gmail.com', 'Warangal');
+
+-- Branch Data
+INSERT INTO Branch
+(Branch_ID, Branch_Name, City, IFSC_Code, Manager_Name)
+VALUES
+(1, 'Main Branch', 'Hyderabad', 'BANK000001', 'Ramesh Kumar'),
+(2, 'City Branch', 'Vijayawada', 'BANK000002', 'Suresh Rao'),
+(3, 'Central Branch', 'Guntur', 'BANK000003', 'Anil Kumar');
+
+-- Account Data
+INSERT INTO Account
+(Account_No, Customer_ID, Branch_ID, Account_Type, Balance, Open_Date, Status)
+VALUES
+(100001, 101, 1, 'Savings', 25000.00, '2026-01-10', 'Active'),
+(100002, 102, 2, 'Savings', 35000.00, '2026-01-15', 'Active'),
+(100003, 103, 3, 'Current', 50000.00, '2026-02-01', 'Active'),
+(100004, 104, 1, 'Savings', 18000.00, '2026-02-10', 'Active');
+
+-- Transaction Data
+INSERT INTO Transaction_Table
+(Transaction_ID, Account_No, Transaction_Type, Amount, Transaction_Date)
+VALUES
+(5001, 100001, 'Deposit', 10000.00, '2026-03-01'),
+(5002, 100001, 'Withdrawal', 5000.00, '2026-03-05'),
+(5003, 100002, 'Deposit', 15000.00, '2026-03-02'),
+(5004, 100003, 'Withdrawal', 8000.00, '2026-03-06'),
+(5005, 100004, 'Deposit', 7000.00, '2026-03-08');
+
+-- Employee Data
+INSERT INTO Employee
+(Employee_ID, Branch_ID, Employee_Name, Designation, Salary, Phone)
+VALUES
+(201, 1, 'Ramesh Kumar', 'Manager', 75000.00, '9000000001'),
+(202, 1, 'Priya Sharma', 'Cashier', 40000.00, '9000000002'),
+(203, 2, 'Suresh Rao', 'Manager', 70000.00, '9000000003'),
+(204, 3, 'Anil Kumar', 'Manager', 72000.00, '9000000004');
+
+-- Loan Data
+INSERT INTO Loan
+(Loan_ID, Customer_ID, Loan_Type, Loan_Amount, Interest_Rate, Loan_Status)
+VALUES
+(301, 101, 'Education Loan', 200000.00, 7.50, 'Active'),
+(302, 102, 'Home Loan', 1500000.00, 8.25, 'Active'),
+(303, 103, 'Personal Loan', 300000.00, 10.50, 'Active');
